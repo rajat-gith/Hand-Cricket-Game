@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.hand_cricket_game.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_mainfragmentscore"
+            app:destination="@id/mainfragmentscore" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.hand_cricket_game.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_losfragment"
+            app:destination="@id/losfragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+        <argument
+            android:name="playerName"
+            app:argType="string"
+            android:defaultValue="Player1" />
+        <argument
+            android:name="target"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="ballsLeft"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.hand_cricket_game.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <argument
+            android:name="playerscorewin"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="targetwin"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainfragmentscore"
+        android:name="com.example.hand_cricket_game.mainfragmentscore"
+        android:label="fragment_mainfragmentscore"
+        tools:layout="@layout/fragment_mainfragmentscore" >
+        <action
+            android:id="@+id/action_mainfragmentscore_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/losfragment"
+        android:name="com.example.hand_cricket_game.losfragment"
+        android:label="fragment_losfragment"
+        tools:layout="@layout/fragment_losfragment" >
+        <action
+            android:id="@+id/action_losfragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <argument
+            android:name="playerscore"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="targetscore"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
